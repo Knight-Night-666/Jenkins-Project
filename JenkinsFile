@@ -1,0 +1,22 @@
+pipeline { 
+    agent any
+    stages {
+        stage('Clone Git') {
+            steps {
+                git 'https://github.com/Knight-Night-666/Jenkins-Project.git'
+            }
+        }
+        stage('Build Code') {
+            steps {
+                sh "chmod u+x  main_prog.py"
+                sh "python3 main_prog.py"
+            }
+        }
+     stage('Test Code') {
+            steps {
+                sh "chmod u+x Test_file.py"
+                sh "python3 Test_file.py"
+            }
+        }
+    } 
+}
